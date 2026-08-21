@@ -1,0 +1,17 @@
+No real CV file has been added yet.
+
+The "Download CV" button in the hero section points to:
+  assets/Mahmoud-Hassan-CV.pdf
+
+That file does not exist yet — a fake/placeholder PDF was intentionally
+NOT created. The button checks for the file on page load (see
+initCvDownload() in js/script.js): if it's missing, the button is shown
+in a disabled state with the label "CV coming soon."
+
+To activate it:
+1. Export your real CV as a PDF.
+2. Name it exactly "Mahmoud-Hassan-CV.pdf".
+3. Place it in this assets/ folder (replacing this note, or alongside it —
+   this .txt file is not referenced anywhere and can be deleted once done).
+
+The button will then automatically enable itself — no code changes needed.

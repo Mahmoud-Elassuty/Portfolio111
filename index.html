@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahmoud Hassan | Front-End Developer</title>
+  <meta name="description" content="Mahmoud Hassan — Front-End Developer and Computer Science student building modern, interactive web experiences with JavaScript and React.">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mahmoud Hassan | Front-End Developer">
+  <meta property="og:description" content="Mahmoud Hassan is a Computer Science student and Front-End Developer focused on JavaScript, responsive interfaces, and modern web experiences.">
+  <meta property="og:image" content="assets/profile.jpg">
+  <!-- og:url intentionally omitted: no real deployed URL exists yet.
+       Once deployed, add: <meta property="og:url" content="https://your-real-url/"> -->
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mahmoud Hassan | Front-End Developer">
+  <meta name="twitter:description" content="Mahmoud Hassan is a Computer Science student and Front-End Developer focused on JavaScript, responsive interfaces, and modern web experiences.">
+  <meta name="twitter:image" content="assets/profile.jpg">
+
+  <!-- canonical intentionally omitted: no real deployed URL exists yet.
+       Once deployed, add: <link rel="canonical" href="https://your-real-url/"> -->
+  <link rel="me" href="https://github.com/Mahmoud-Elassuty">
+  <link rel="me" href="https://www.linkedin.com/in/mahmoud-hassan17/">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Built by react-lab/ via `npm run build` — see that folder's setup notes. -->
+  <link rel="stylesheet" href="assets/react-lab/react-lab.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-container" aria-label="Primary">
+      <a href="#home" class="logo" aria-label="Mahmoud Hassan, home">
+        <span class="logo-mark">MH</span>
+        <span class="logo-full">Mahmoud Hassan</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active-link" data-nav>Home</a></li>
+        <li><a href="#about" class="nav-link" data-nav>About</a></li>
+        <li><a href="#skills" class="nav-link" data-nav>Skills</a></li>
+        <li><a href="#development" class="nav-link" data-nav>Training</a></li>
+        <li><a href="#projects" class="nav-link" data-nav>Projects</a></li>
+        <li><a href="#react-lab" class="nav-link" data-nav>React Lab</a></li>
+        <li><a href="#journey" class="nav-link" data-nav>Journey</a></li>
+        <li><a href="#contact" class="nav-link" data-nav>Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary btn-nav">Let's Talk</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-overlay"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-text">
+          <p class="badge"><span class="badge-dot"></span>Open to Front-End Opportunities</p>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-gradient">Mahmoud Hassan.</span>
+          </h1>
+
+          <p class="hero-subtitle" id="typed-subtitle" aria-live="polite"></p>
+          <span class="visually-hidden" id="typed-subtitle-full">Front-End Developer focused on JavaScript &amp; modern web interfaces.</span>
+
+          <p class="hero-desc">
+            I'm a Computer Science student who builds front-end interfaces
+            with HTML, CSS, and JavaScript — from laying out responsive
+            pages to wiring up DOM logic and interactive UI. I learn by
+            shipping real, working projects rather than isolated exercises,
+            and I'm currently extending that foundation into React.
+          </p>
+
+          <div class="hero-tags" aria-label="Core focus areas">
+            <span class="tag">Front-End Development</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive Web Design</span>
+            <span class="tag">Modern UI</span>
+            <span class="tag">Problem Solving</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <a href="assets/Mahmoud-Hassan-CV.pdf" class="btn btn-outline" id="cv-download" download aria-describedby="cv-status">Download CV</a>
+            <span class="visually-hidden" id="cv-status" role="status"></span>
+          </div>
+
+          <div class="hero-socials" aria-label="Social links">
+            <a href="https://github.com/Mahmoud-Elassuty" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Mahmoud Hassan on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.02 11.02 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mahmoud-hassan17/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Mahmoud Hassan on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="mailto:mahmoudalassyiouty1@gmail.com" class="social-icon" aria-label="Email Mahmoud Hassan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6.5 12 13l9-6.5"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="image-frame">
+            <div class="image-ring" aria-hidden="true"></div>
+            <img src="assets/profile.jpg" alt="Portrait of Mahmoud Hassan" class="profile-img" width="480" height="480">
+            <span class="floating-chip chip-1" aria-hidden="true">&lt;/&gt;</span>
+            <span class="floating-chip chip-2" aria-hidden="true">{ }</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===== BRAND STATEMENT ===== -->
+    <div class="brand-statement">
+      <p><span>Building interfaces.</span><span>Solving problems.</span><span>Learning continuously.</span></p>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">01 /</span> About</p>
+        <h2 class="section-title">About Me.</h2>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm a front-end developer working mainly with HTML, CSS, and
+              JavaScript — building responsive layouts, wiring up DOM logic,
+              and turning designs into interfaces people can actually use.
+              I build through real, practical projects rather than isolated
+              exercises, and I'm extending that foundation into React
+              through structured professional training. My Computer Science
+              background gives that work a solid base in how the web
+              actually functions.
+            </p>
+
+            <div class="quick-facts" aria-label="At a glance">
+              <p class="quick-facts-title">At a Glance</p>
+              <dl>
+                <div class="quick-fact">
+                  <dt>Role</dt>
+                  <dd>Front-End Developer</dd>
+                </div>
+                <div class="quick-fact">
+                  <dt>Focus</dt>
+                  <dd>JavaScript / React</dd>
+                </div>
+                <div class="quick-fact">
+                  <dt>Background</dt>
+                  <dd>Computer Science</dd>
+                </div>
+                <div class="quick-fact">
+                  <dt>Development Style</dt>
+                  <dd>Product-focused &amp; detail-oriented</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div class="about-cards">
+            <p class="about-cards-title">What I Do</p>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3>Front-End Development</h3>
+              <p>Building responsive, accessible, and interactive interfaces.</p>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <h3>JavaScript Development</h3>
+              <p>Creating browser interactions, DOM-driven experiences, and practical application logic.</p>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <h3>Modern Web Development</h3>
+              <p>Developing component-based interfaces with React while expanding into modern web development practices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">02 /</span> Skills</p>
+        <h2 class="section-title">What I work with.</h2>
+        <p class="section-lede">A practical toolkit built through hands-on practice, not a checklist of buzzwords.</p>
+
+        <div class="skills-groups">
+          <div class="skill-group">
+            <h3 class="skill-group-title">Core Front-End</h3>
+            <div class="skill-cards">
+              <div class="skill-card"><span class="skill-name">HTML5</span><p>Semantic, accessible markup as the foundation of every page.</p></div>
+              <div class="skill-card"><span class="skill-name">CSS3</span><p>Layout, responsive styling, and modern visual design.</p></div>
+              <div class="skill-card"><span class="skill-name">JavaScript</span><p>Core language features used to build interactive UI.</p></div>
+              <div class="skill-card"><span class="skill-name">Responsive Web Design</span><p>Interfaces that adapt intentionally across screen sizes.</p></div>
+              <div class="skill-card"><span class="skill-name">DOM</span><p>Reading, updating, and reacting to the page structure.</p></div>
+              <div class="skill-card"><span class="skill-name">Browser APIs</span><p>Working with the browser platform beyond the DOM.</p></div>
+              <div class="skill-card"><span class="skill-name">Local Storage</span><p>Persisting data client-side for a smoother experience.</p></div>
+              <div class="skill-card"><span class="skill-name">Regular Expressions</span><p>Matching and validating patterns in text.</p></div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group-title">Development Workflow</h3>
+            <div class="skill-cards">
+              <div class="skill-card"><span class="skill-name">Git</span><p>Version control for tracking and managing changes.</p></div>
+              <div class="skill-card"><span class="skill-name">GitHub</span><p>Hosting repositories and managing project history.</p></div>
+              <div class="skill-card"><span class="skill-name">VS Code</span><p>Primary editor, configured for a fast front-end workflow.</p></div>
+              <div class="skill-card"><span class="skill-name">Debugging</span><p>Using browser DevTools to trace and fix issues.</p></div>
+              <div class="skill-card"><span class="skill-name">Problem Solving</span><p>Breaking down requirements into working solutions.</p></div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group-title">Currently Learning</h3>
+            <div class="learning-card">
+              <span class="skill-name">React</span>
+              <p>Building component-based interfaces and strengthening modern front-end architecture skills through ITI and DEPI training.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROFESSIONAL DEVELOPMENT ===== -->
+    <section class="section section-alt" id="development">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">03 /</span> Professional Development</p>
+        <h2 class="section-title">Structured training, applied deliberately.</h2>
+        <p class="section-lede">Two professional training programs, focused on React and modern front-end development.</p>
+
+        <div class="training-grid">
+          <article class="training-card">
+            <div class="training-card-top">
+              <p class="training-org">Information Technology Institute (ITI)</p>
+              <span class="training-status">Professional Training</span>
+            </div>
+            <h3>Advanced Frontend Web Development using React JS</h3>
+            <p class="training-desc">A Web Development track focused on advanced front-end engineering: React, component architecture, and building responsive, modern interfaces.</p>
+            <div class="project-tech">
+              <span>React</span><span>Advanced Front-End</span><span>Responsive Interfaces</span><span>Modern Web Development</span>
+            </div>
+          </article>
+
+          <article class="training-card">
+            <div class="training-card-top">
+              <p class="training-org">Digital Egypt Pioneers Initiative (DEPI)</p>
+              <span class="training-status">Professional Training Program</span>
+            </div>
+            <h3>React Frontend Web Developer Track</h3>
+            <p class="training-desc">A structured program covering the full front-end path: web fundamentals, UI/UX, the modern JavaScript ecosystem, developer workflow, backend and DevOps foundations, and a capstone project.</p>
+
+            <div class="depi-skills">
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">Web Fundamentals</p>
+                <div class="project-tech"><span>HTML5</span><span>CSS</span><span>JavaScript</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">UI / UX</p>
+                <div class="project-tech"><span>Principles of UX/UI Design</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">Modern JavaScript Ecosystem <span class="training-focus-tag">Training Focus</span></p>
+                <div class="project-tech"><span>TypeScript</span><span>React</span><span>Bootstrap</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">Developer Workflow</p>
+                <div class="project-tech"><span>Git</span><span>GitHub</span><span>Code Style</span><span>Design Patterns</span><span>Best Practices</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">Backend Foundations <span class="training-focus-tag">Developing</span></p>
+                <div class="project-tech"><span>Node.js</span><span>Express.js</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">DevOps Foundations <span class="training-focus-tag">Developing</span></p>
+                <div class="project-tech"><span>Docker</span><span>Containerization Basics</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">Quality &amp; Documentation</p>
+                <div class="project-tech"><span>Functional Documentation</span><span>Unit Testing</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">AI-Assisted Development</p>
+                <div class="project-tech"><span>Prompt Engineering</span><span>AI-Assisted Workflows</span></div>
+              </div>
+              <div class="depi-skill-group">
+                <p class="depi-skill-label">Capstone <span class="training-focus-tag">Training Focus</span></p>
+                <div class="project-tech"><span>Capstone Project</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="training-flow" aria-hidden="true">
+          <span>Training</span>
+          <span class="flow-arrow">→</span>
+          <span>Skills</span>
+          <span class="flow-arrow">→</span>
+          <span>Applied in Projects</span>
+          <span class="flow-arrow">→</span>
+          <span>Capstone</span>
+        </div>
+
+        <div class="ai-assisted-block">
+          <p class="training-status">AI-Assisted Development</p>
+          <p>Using modern AI tools to accelerate prototyping, debugging, exploration, documentation, and development workflows — while maintaining human control over architecture, implementation, and code quality. AI accelerates the workflow; the engineering decisions stay mine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">04 /</span> Projects</p>
+        <h2 class="section-title">Featured Work.</h2>
+        <p class="section-lede">Real projects, added as they're built. Nothing here is a placeholder achievement.</p>
+
+        <div class="project-filters" id="project-filters" role="group" aria-label="Filter projects by category" hidden></div>
+
+        <div id="featured-project"></div>
+
+        <div class="projects-grid" id="projects-grid" aria-live="polite">
+          <!-- Rendered by js/script.js from the `projects` data array. Edit that array to add real projects. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REACT LAB ===== -->
+    <section class="section section-alt" id="react-lab">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">05 /</span> React Lab</p>
+        <h2 class="section-title">React Lab.</h2>
+        <p class="section-lede">A small interactive component built with React inside this portfolio — the same project data above, this time filtered and selected with real React state.</p>
+        <span class="badge"><span class="badge-dot" aria-hidden="true"></span>Built with React</span>
+
+        <!--
+          Mounted by the isolated React app in react-lab/ (see that folder's
+          README section for build instructions). The bundle is built to
+          assets/react-lab/react-lab.js + react-lab.css via `npm run build`
+          and loaded below with a plain <script> tag — no bundler or dev
+          server is required to view the rest of this static portfolio.
+          If the bundle hasn't been built yet, this note stays visible
+          instead of the page breaking.
+        -->
+        <div id="react-lab-root">
+          <p class="rl-fallback">React Lab bundle not built yet — run <code>cd react-lab &amp;&amp; npm install &amp;&amp; npm run build</code>, then reload.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GITHUB / CODE ===== -->
+    <section class="section section-alt" id="github">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">06 /</span> Code &amp; Open Source</p>
+        <h2 class="section-title">Code &amp; Open Source.</h2>
+        <p class="section-lede">Smaller practice repositories and exercises live on GitHub rather than being featured as full case studies.</p>
+
+        <div class="github-cta">
+          <a href="https://github.com/Mahmoud-Elassuty" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View Full GitHub Profile</a>
+        </div>
+
+        <div class="github-repos" id="github-repos" aria-live="polite">
+          <!-- Rendered by js/script.js from the `githubRepos` data array. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECT MODAL ===== -->
+    <div class="modal-backdrop" id="project-modal" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="modal-panel">
+        <button class="modal-close" id="modal-close" aria-label="Close project details">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="modal-body" id="modal-body">
+          <!-- Populated by js/script.js when a project's "View Details" is clicked -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== LEARNING & DEVELOPMENT ===== -->
+    <section class="section section-alt" id="journey">
+      <div class="container">
+        <p class="eyebrow"><span class="eyebrow-num">07 /</span> Journey</p>
+        <h2 class="section-title">Journey.</h2>
+        <p class="section-lede">No employment history yet — here's the path so far, and where it's heading.</p>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3>Web Foundations</h3>
+              <p>Started with the fundamentals — HTML, CSS, and JavaScript — and building simple static pages.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3>JavaScript Development</h3>
+              <p>Focused on the DOM, events, browser APIs, local storage, and writing more structured, readable code.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3>Front-End Projects</h3>
+              <p>Applying what I learn by building real interfaces, like NOVA, instead of isolated exercises.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3>Professional Training — ITI &amp; DEPI</h3>
+              <p>Advanced Frontend Web Development using React JS at ITI, and the React Frontend Web Developer track at DEPI.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3>React Development</h3>
+              <p>Currently building component-based, interactive applications with React.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="container container-narrow">
+        <p class="eyebrow"><span class="eyebrow-num">08 /</span> Contact</p>
+        <h2 class="section-title">Have an idea, project, or opportunity?</h2>
+        <p class="section-lede">Let's build something meaningful.</p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-buttons">
+              <a href="mailto:mahmoudalassyiouty1@gmail.com" class="btn btn-primary">Email Me</a>
+              <a href="https://github.com/Mahmoud-Elassuty" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View GitHub</a>
+              <a href="https://www.linkedin.com/in/mahmoud-hassan17/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            </div>
+
+            <a class="contact-line" href="mailto:mahmoudalassyiouty1@gmail.com">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6.5 12 13l9-6.5"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+              </span>
+              <span>mahmoudalassyiouty1@gmail.com</span>
+            </a>
+            <a class="contact-line" href="tel:+201094210986">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <span>01094210986</span>
+            </a>
+            <a class="contact-line" href="https://github.com/Mahmoud-Elassuty" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.02 11.02 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+              </span>
+              <span>github.com/Mahmoud-Elassuty</span>
+            </a>
+            <a class="contact-line" href="https://www.linkedin.com/in/mahmoud-hassan17/" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+              </span>
+              <span>linkedin.com/in/mahmoud-hassan17</span>
+            </a>
+          </div>
+
+          <!--
+            Delivery: POST /api/contact, handled by the minimal Express
+            backend in server/ (see that folder's README section). The
+            action attribute below is a plain-HTML fallback in case
+            JavaScript fails to load; js/script.js normally intercepts the
+            submit and sends it via fetch(), showing real inline
+            success/error state instead of a page redirect. It never shows
+            "message sent" unless the API actually returns success.
+          -->
+          <form class="contact-form" id="contact-form" action="/api/contact" method="POST" novalidate>
+            <!-- Honeypot: hidden from real visitors (off-screen, out of
+                 tab order, aria-hidden) — only bots that auto-fill every
+                 field will populate this, letting the backend silently
+                 skip email delivery for that submission. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="company-field">Company</label>
+              <input
+                type="text"
+                id="company-field"
+                name="company_field"
+                tabindex="-1"
+                autocomplete="new-password"
+                aria-hidden="true"
+              >
+            </div>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" aria-describedby="error-name" required>
+              <span class="form-error" id="error-name" role="alert"></span>
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" aria-describedby="error-email" required>
+              <span class="form-error" id="error-email" role="alert"></span>
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" aria-describedby="error-subject" required>
+              <span class="form-error" id="error-subject" role="alert"></span>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" aria-describedby="error-message" required></textarea>
+              <span class="form-error" id="error-message" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="form-submit">Send Message</button>
+            <p class="form-note" id="form-note" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="logo-mark">MH</span>
+        <div>
+          <p class="footer-name">Mahmoud Hassan</p>
+          <p class="footer-role">Front-End Developer</p>
+        </div>
+      </div>
+
+      <ul class="footer-nav" aria-label="Footer">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#development">Training</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#react-lab">React Lab</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="footer-socials" aria-label="Social links">
+        <a href="https://github.com/Mahmoud-Elassuty" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.02 11.02 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mahmoud-hassan17/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="mailto:mahmoudalassyiouty1@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6.5 12 13l9-6.5"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Mahmoud Hassan. All rights reserved.</p>
+        <p class="footer-tagline">Built with HTML5, CSS3 &amp; JavaScript. Enhanced with AI-assisted development workflows.</p>
+        <p class="footer-tagline">Frontend: HTML · CSS · JavaScript · React — Backend: Node.js · Express.js</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <!-- Contact form backend location. Leave empty (default) when this
+       page is served by the Express backend itself, or behind a
+       reverse proxy that forwards /api/* to it — the recommended
+       setup, and correct for most deployments unmodified. Only set
+       this if the frontend is deployed on a different origin than the
+       backend (e.g. static hosting for the site + the backend hosted
+       elsewhere), to that backend's full origin, e.g.
+       "https://api.example.com". See js/script.js (resolveApiBase). -->
+  <script>
+    window.PORTFOLIO_API_BASE = "";
+  </script>
+  <script src="js/script.js"></script>
+  <!-- Built by react-lab/ via `npm run build` — self-contained IIFE bundle, no module loader needed. Missing file 404s harmlessly; the fallback note in #react-lab-root stays visible. -->
+  <script src="assets/react-lab/react-lab.js" defer></script>
+</body>
+</html>

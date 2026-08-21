@@ -1,0 +1,10 @@
+{
+  "name": "mahmoud-hassan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mahmoud Hassan's portfolio — static HTML/CSS/JS site with an isolated React feature (react-lab/) and a minimal Express backend (server/) for the contact form.",
+  "scripts": {
+    "dev": "cd server && npm run dev",
+    "build:react-lab": "cd react-lab && npm run build"
+  }
+}

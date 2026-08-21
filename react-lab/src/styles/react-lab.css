@@ -1,0 +1,111 @@
+/* =========================================================
+   React Lab — styles
+   Intentionally reuses the host portfolio's design tokens
+   (--card, --card-border, --accent, --accent-2, --text, --muted,
+   --font-mono, --radius-md, --ease, defined in ../../../css/style.css)
+   rather than introducing a new visual theme.
+========================================================= */
+.rl-root { margin-top: 3rem; }
+
+.rl-explorer-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.rl-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  color: var(--muted, #94a3b8);
+}
+.rl-count strong { color: var(--text, #f8fafc); }
+
+.rl-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.rl-filter-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+  background: var(--card, rgba(255, 255, 255, 0.05));
+  color: var(--muted, #94a3b8);
+  transition: color 0.2s var(--ease, ease), border-color 0.2s var(--ease, ease), background 0.2s var(--ease, ease);
+}
+.rl-filter-btn:hover { color: var(--text, #f8fafc); border-color: var(--card-hover-border, rgba(99, 102, 241, 0.35)); }
+.rl-filter-btn.active {
+  color: #05050a;
+  background: linear-gradient(135deg, var(--accent, #6366f1), var(--accent-2, #22d3ee));
+  border-color: transparent;
+}
+
+.rl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.rl-card {
+  background: var(--card, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-md, 16px);
+  padding: 1.4rem;
+  transition: border-color 0.25s var(--ease, ease), transform 0.25s var(--ease, ease);
+}
+.rl-card:hover { border-color: var(--card-hover-border, rgba(99, 102, 241, 0.35)); transform: translateY(-3px); }
+.rl-card--active { border-color: var(--accent-2, #22d3ee); }
+.rl-card h3 { font-size: 1.02rem; margin: 0 0 0.5rem; }
+.rl-card p { color: var(--muted, #94a3b8); font-size: 0.88rem; margin: 0 0 1rem; }
+
+.rl-badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.1rem; }
+.rl-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  color: var(--accent-2, #22d3ee);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+}
+
+.rl-view-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+  background: transparent;
+  color: var(--text, #f8fafc);
+  transition: border-color 0.2s var(--ease, ease), color 0.2s var(--ease, ease);
+}
+.rl-view-btn:hover { border-color: var(--accent-2, #22d3ee); color: var(--accent-2, #22d3ee); }
+
+.rl-empty { color: var(--muted, #94a3b8); font-size: 0.92rem; }
+
+.rl-detail {
+  margin-top: 1.75rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.06));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: var(--radius-md, 16px);
+  padding: 1.5rem;
+}
+.rl-detail-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-2, #22d3ee);
+  margin: 0 0 0.5rem;
+}
+.rl-detail h4 { font-size: 1.1rem; margin: 0 0 0.5rem; }
+.rl-detail p { color: var(--muted, #94a3b8); font-size: 0.92rem; margin: 0 0 1rem; }
+.rl-detail-links { display: flex; gap: 0.75rem; }
+.rl-detail-links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
+  transition: border-color 0.2s var(--ease, ease), color 0.2s var(--ease, ease);
+}
+.rl-detail-links a:hover { border-color: var(--accent-2, #22d3ee); color: var(--accent-2, #22d3ee); }
