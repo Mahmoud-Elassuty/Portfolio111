@@ -1,0 +1,59 @@
+/* ---------- Design tokens (palette carried over from the original) ---------- */
+:root {
+  --ink: #14070c; --wine: #4a1020; --ox: #8c1f3a; --rose: #ff5c7a;
+  --sand: #ead2ae; --paper: #f6ebdd; --mute: #b9a493; --card: #201016;
+  --line: #ffffff1f;
+  --gold: #d9b98b;            /* muted champagne: form lines, focus rings */
+  --gold-soft: #d9b98b55;
+  --danger: #ff9d8a;
+  --gutter: clamp(20px, 5vw, 48px);
+  --maxw: 1200px;
+  --disp: 'Manrope Variable', 'Cairo', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --body: 'DM Sans Variable', 'Cairo', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  color-scheme: dark;
+  /* Bootstrap theme variables mapped to the portfolio palette */
+  --bs-body-color: #f6ebdd; --bs-body-color-rgb: 246, 235, 221; --bs-body-bg: #14070c; --bs-body-bg-rgb: 20, 7, 12;
+  --bs-heading-color: inherit; --bs-border-color: #ffffff1f; --bs-emphasis-color: #f6ebdd; --bs-link-color: #ead2ae;
+}
+[dir='rtl'] { --disp: 'Cairo', 'Manrope Variable', system-ui, sans-serif; --body: 'Cairo', 'DM Sans Variable', system-ui, sans-serif; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; -webkit-text-size-adjust: 100%; }
+html.is-loading { overflow: hidden; }
+body { margin: 0; background: var(--ink); color: var(--paper); font: 400 16px/1.6 var(--body); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { font-family: var(--disp); line-height: 1.08; margin: 0; letter-spacing: -.03em; }
+[dir='rtl'] h1, [dir='rtl'] h2, [dir='rtl'] h3, [dir='rtl'] h4 { letter-spacing: 0; line-height: 1.3; }
+p, ul, ol, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--ox); color: #fff; }
+
+.wrap-x { width: 100%; max-width: calc(var(--maxw) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* ---------- Buttons ---------- */
+.btn-x { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 13px 22px; border-radius: 14px; font: 600 15px var(--body); border: 1px solid transparent; cursor: pointer; transition: transform .25s var(--ease), box-shadow .25s, background .25s, border-color .25s; }
+.btn-x.p { background: linear-gradient(135deg, var(--ox), var(--rose)); color: #fff; box-shadow: 0 10px 30px -8px #ff5c7a88; }
+.btn-x.p:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -8px #ff5c7aaa; }
+.btn-x.g { border-color: #ffffff40; background: #14070c88; backdrop-filter: blur(10px); }
+.btn-x.g:hover { border-color: var(--gold); background: #14070ccc; transform: translateY(-2px); }
+.btn-x:active { transform: translateY(0); }
+
+/* ---------- Preloader ---------- */
+.preloader { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background: radial-gradient(90% 70% at 50% 40%, #2a0f18 0, var(--ink) 70%); transition: opacity .6s ease, visibility .6s; }
+.preloader.is-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader__inner { display: grid; justify-items: center; gap: 20px; padding: 24px; text-align: center; }
+.preloader__mark { font: 800 clamp(40px, 11vw, 64px)/1 var(--disp); letter-spacing: -.03em; color: var(--paper); animation: pl-in .8s var(--ease) both; }
+[dir='rtl'] .preloader__mark { font-family: 'Manrope Variable', sans-serif; direction: ltr; }
+.preloader__mark b { color: var(--rose); }
+.preloader__text { font: 600 clamp(11px, 3.2vw, 13px)/1.4 'Manrope Variable', var(--body); letter-spacing: .38em; padding-inline-start: .38em; color: var(--sand); animation: pl-in .8s .15s var(--ease) both; direction: ltr; }
+.preloader__line { width: min(220px, 60vw); height: 2px; background: #ead2ae26; border-radius: 2px; overflow: hidden; animation: pl-in .8s .3s var(--ease) both; }
+.preloader__line span { display: block; height: 100%; width: 100%; transform-origin: left; background: linear-gradient(90deg, var(--ox), var(--gold), var(--rose)); animation: pl-line 1s .2s cubic-bezier(.65, 0, .35, 1) both; }
+@keyframes pl-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes pl-line { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---------- Skip focus fix for inert wrapper ---------- */
+.app { min-height: 100vh; overflow-x: clip; }

@@ -1,0 +1,31 @@
+/* Scroll reveals. Hidden states exist only when JS added .rv-on (IntersectionObserver present),
+   so content stays visible if the observer is unavailable. */
+.reveal { --dx: 0px; --dy: 0px; --sc: 1; --dir: 1; }
+[dir='rtl'] .reveal { --dir: -1; }
+.rv-up { --dy: 28px; } .rv-down { --dy: -24px; }
+.rv-left { --dx: calc(-36px * var(--dir)); } .rv-right { --dx: calc(36px * var(--dir)); }
+.rv-zoom { --sc: .96; }
+
+.rv-on .reveal { opacity: 0; transform: translate3d(var(--dx), var(--dy), 0) scale(var(--sc)); transition: opacity .35s ease, transform .35s ease; }
+.rv-on .reveal.is-in { opacity: 1; transform: none; transition: opacity .8s var(--ease) var(--d), transform .8s var(--ease) var(--d); }
+
+/* skill chips stagger in once their row is revealed */
+.rv-on .mq .sk { opacity: 0; transform: translateY(14px); transition: opacity .3s, transform .3s; }
+.rv-on .mq.is-in .sk { opacity: 1; transform: none; transition: opacity .6s var(--ease) calc(var(--i) * 70ms + 150ms), transform .6s var(--ease) calc(var(--i) * 70ms + 150ms), border-color .25s; }
+
+/* ---------- Reduced motion: everything visible, nothing moves ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv-on .reveal, .rv-on .mq .sk { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .tr { animation: none; flex-wrap: wrap; width: auto; justify-content: center; padding-inline: var(--gutter); }
+  .tr .sk[aria-hidden='true'] { display: none; }
+  .mq { -webkit-mask: none; mask: none; }
+  .hero-media img { animation: none !important; transform: scale(1.02); }
+  .leak, .role i { animation: none; }
+  .bar { display: none; }
+  .name span em { transform: none !important; animation: none !important; }
+  .pitch, .hero-cta { opacity: 1 !important; animation: none !important; }
+  .preloader__mark, .preloader__text, .preloader__line, .preloader__line span { animation: none; }
+  .preloader { transition-duration: .01s; }
+  .btn-x, .soc, .sk, .fl, .it, .org-logo { transition: none; }
+}

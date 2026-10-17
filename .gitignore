@@ -1,0 +1,18 @@
+
+# Dependencies and build output
+node_modules/
+dist/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Existing React Lab build output
+assets/react-lab/
+
+# Backend message storage
+server/data/messages.json
+
+# OS / editor noise
+.DS_Store
